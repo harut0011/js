@@ -1,18 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 	let buttons = document.querySelectorAll('button');
-	let nums = document.querySelectorAll('a')
+	let currentNum = document.querySelector('.current-num');
+	let span = document.querySelector('span')
+
 	for (let a = 0; a < buttons.length; a++) {
 		let button = buttons[a];
-		let clickedBtn;
+		button.addEventListener('click', () => {
+			
+			if (button.innerHTML > 0) {
+				if (currentNum.innerHTML == '0') {
+					currentNum.innerHTML = button.innerHTML;
 
-		for (let b = 0; b < nums.length; b++) {
-			let num = nums[b]
-			button.addEventListener('click', () => {
-				console.log(this.innerHTML)
 
-			})
-		}
-		
-		console.log(button)
+				} else {
+					currentNum.innerHTML += button.innerHTML;
+				}
+			}
+		})
 	}
 })

@@ -16,7 +16,7 @@ body {
     overflow: hidden
 }
 .name {
-    margin-top: 100px;
+    margin-top: 8vw;
 }
 .name h1 {
 	font-weight: 300
@@ -30,17 +30,16 @@ body {
     -webkit-text-fill-color: transparent;
 }
 .btns {
-	width: 400px;
-    margin-top: 100px;
+	width: 25vw;
+    margin-top: 5vw;
 }
 .btns div {
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
 }
 button {
-    width: 60px;
-    height: 60px;
+    width: 4vw;
+    height: 4vw;
     font-size: 180%;
     text-align: center;
     background-color: rgba(42, 50, 113, .28);
@@ -49,6 +48,8 @@ button {
     padding: 0;
     outline: none;
     transition: .4s;
+    color: #6cacc5;
+    text-decoration: none
 }
 button::-moz-focus-inner 
 {
@@ -58,25 +59,35 @@ button:hover {
     cursor: pointer;
     background-color: #201e40;
 }
-button a {
-    color: #6cacc5;
-    text-decoration: none
-}
+
 .current-num {
     display: block;
     position: relative;
-    top: 30px;
-    right: 20px;
+    top: 2vw;
+    right: 0.66vw;
     font-size: 160%;
 }
 
 span {
     position: absolute;
-    z-index: 1000;
     color: #fff;
-    left: 46%;
+    left: 47.5%;
     top: 30%;
-    width: 100px;
-    height: 100px;
-    background-color: red
+    width: 5vw;
+    height: 5vw;
+    padding-top: 50px;
+    transition: .4s;
+    opacity: 0;
+    z-index: -1;
+}
+.span-eff {
+    transform: scale(3);
+    font-size: 200%;
+    opacity: 1
+}
+
+@media screen and (max-height: 1323px) {
+    .btns {
+        width: 30vw;
+    }
 }
