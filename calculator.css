@@ -1,0 +1,82 @@
+* {
+	font-family: sans-serif;
+	text-align: center;
+}
+
+body {
+	background: #100a1c;
+    background-image:
+    radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0,0,0,0) 100%),
+    radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%);
+    background-attachment: fixed;
+    color: #6cacc5;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden
+}
+.name {
+    margin-top: 100px;
+}
+.name h1 {
+	font-weight: 300
+}
+.name p {
+	color: #8c5059;
+	display: block;
+	width: 100%;
+	background: -webkit-linear-gradient(45deg,  #c97874 10%, #463042 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.btns {
+	width: 400px;
+    margin-top: 100px;
+}
+.btns div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+button {
+    width: 60px;
+    height: 60px;
+    font-size: 180%;
+    text-align: center;
+    background-color: rgba(42, 50, 113, .28);
+    border: none;
+    margin: 1vw;
+    padding: 0;
+    outline: none;
+    transition: .4s;
+}
+button::-moz-focus-inner 
+{
+  border: 0;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #201e40;
+}
+button a {
+    color: #6cacc5;
+    text-decoration: none
+}
+.current-num {
+    display: block;
+    position: relative;
+    top: 30px;
+    right: 20px;
+    font-size: 160%;
+}
+
+span {
+    position: absolute;
+    z-index: 1000;
+    color: #fff;
+    left: 46%;
+    top: 30%;
+    width: 100px;
+    height: 100px;
+    background-color: red
+}
