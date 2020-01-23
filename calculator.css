@@ -1,5 +1,5 @@
 * {
-	font-family: sans-serif;
+	font-family: 'Roboto', sans-serif;
 	text-align: center;
 }
 
@@ -76,14 +76,14 @@ span {
     width: 5vw;
     height: 5vw;
     padding-top: 50px;
-    transition: .4s;
-    opacity: 0;
+    transition: .3s;
     z-index: -1;
+    opacity: 0;
+    font-weight: 100;
 }
 .span-eff {
     transform: scale(3);
     font-size: 200%;
-    opacity: 1
 }
 
 @media screen and (max-height: 1323px) {
