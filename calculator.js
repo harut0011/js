@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const span = document.querySelector('span'); // the showing text when there's any click on buttons
     const refresh = document.getElementById('refresh'); // button C to refress the current number
     const numbers = document.querySelectorAll('.number'); // all button numbers
-    const maths = document.querySelectorAll('.math'); // arithmetic operation buttons
-
+    const maths = document.querySelectorAll('.math'); // arithmetic operation buttons;
+    let numInRAM;
     let spanEff = (spanValue) => {
         span.innerHTML = spanValue;
         span.classList.add('span-eff');
@@ -46,9 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         math.addEventListener('click', () => {
             if (math.innerHTML == '+') {
-                spanEff('plus')
+                spanEff('plus');
             } else if (math.innerHTML == '-') {
-                spanEff('minus')
+                spanEff('minus');
+                numInRAM = currentNum.innerHTML
+                currentNum.innerHTML = '0';
+                console.log(numInRAM)
             } else if (math.innerHTML == '*') {
                 spanEff('times')
             } else if (math.innerHTML == '/') {
@@ -57,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 spanEff('.')
             }
         })
+        
     }
 
     refresh.addEventListener('click', () => {
