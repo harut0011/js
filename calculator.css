@@ -1,6 +1,8 @@
 * {
 	font-family: 'Roboto', sans-serif;
 	text-align: center;
+    transition: .4s;
+    text-decoration: none
 }
 
 body {
@@ -12,7 +14,6 @@ body {
     color: #6cacc5;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
     overflow: hidden
 }
 .name {
@@ -23,6 +24,8 @@ body {
 }
 .name p {
 	color: #8c5059;
+    font-weight: 500;
+    font-size: 120%;
 	display: block;
 	width: 100%;
 	background: -webkit-linear-gradient(45deg,  #c97874 10%, #463042 90%);
@@ -40,7 +43,7 @@ body {
 button {
     width: 4vw;
     height: 4vw;
-    font-size: 180%;
+    font-size: 210%;
     text-align: center;
     background-color: rgba(42, 50, 113, .28);
     border: none;
@@ -65,7 +68,7 @@ button:hover {
     position: relative;
     top: 2vw;
     right: 0.66vw;
-    font-size: 160%;
+    font-size: 250%;
 }
 
 span {
@@ -90,4 +93,25 @@ span {
     .btns {
         width: 30vw;
     }
+}
+
+
+.math    {
+    color: #fff;
+}
+
+#replace {
+    position: absolute;
+    top: 23.7vw;
+    left: 62.6vw;
+    color: #fff;
+}
+
+.replace1 {
+    transform: rotate(180deg);
+    color: lightgreen;
+}
+
+.mathColor {
+    color: lightgreen;
 }

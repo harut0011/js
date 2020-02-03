@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     'use strict'
-
     const currentNum = document.querySelector('.current-num');
     const span = document.querySelector('span'); // the showing text when there's any click on buttons
     const refresh = document.getElementById('refresh'); // button C to refress the current number
     const numbers = document.querySelectorAll('.number'); // all button numbers
     const maths = document.querySelectorAll('.math'); // arithmetic operation buttons;
+    const replace = document.getElementById('replace');
+    const replaceIc = document.querySelector('.fas'); // the replace icon
+
+
+
     let numToMath, act;
     let spanEff = (spanValue) => {
         span.innerHTML = spanValue;
@@ -60,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 currentNum.innerHTML = '0';
                 act = 'minus'
-                
+
             } else if (math.innerHTML == '*') {
                 spanEff('times');
                 numToMath = currentNum.innerHTML;
@@ -76,27 +80,52 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (math.innerHTML == '.') {
                 spanEff('.')
             } else if (math.innerHTML == '=') {
-            	if (act == 'plus') {
-            		currentNum.innerHTML = Number(numToMath) + Number(currentNum.innerHTML);
-            		spanEff(currentNum.innerHTML)
-            	} else if (act == 'minus') {
-            		currentNum.innerHTML = Number(numToMath) - Number(currentNum.innerHTML);
-            		spanEff(currentNum.innerHTML)
-            	} else if (act == 'times') {
-            		currentNum.innerHTML = Number(numToMath) * Number(currentNum.innerHTML);
-            		spanEff(currentNum.innerHTML)
-            	} else if (act == 'divide by') {
-            		currentNum.innerHTML = Number(numToMath) / Number(currentNum.innerHTML);
-            		spanEff(currentNum.innerHTML)
-            	}
+                if (act == 'plus') {
+                    currentNum.innerHTML = Number(numToMath) + Number(currentNum.innerHTML);
+                    spanEff(currentNum.innerHTML)
+                } else if (act == 'minus') {
+                    currentNum.innerHTML = Number(numToMath) - Number(currentNum.innerHTML);
+                    spanEff(currentNum.innerHTML)
+                } else if (act == 'times') {
+                    currentNum.innerHTML = Number(numToMath) * Number(currentNum.innerHTML);
+                    spanEff(currentNum.innerHTML)
+                } else if (act == 'divide by') {
+                    currentNum.innerHTML = Number(numToMath) / Number(currentNum.innerHTML);
+                    spanEff(currentNum.innerHTML)
+                }
             }
 
         })
 
     }
 
-
     refresh.addEventListener('click', () => {
         currentNum.innerHTML = '0'
+    })
+
+    replace.addEventListener('click', () => {
+        replaceIc.classList.toggle('replace1');
+
+        for (let c = 0; c < maths.length; c++) {
+            let math = maths[c];
+            math.classList.toggle('mathColor')
+            if (math.innerHTML == '+') {
+            	math.innerHTML = 'sin';
+            } else if (math.innerHTML == '-') {
+            	math.innerHTML = 'cos'
+            } else if (math.innerHTML == '*') {
+            	math.innerHTML = 'tan'
+            } else if (math.innerHTML == '/') {
+            	math.innerHTML = '√' 
+            } else if (math.innerHTML == 'sin') {
+            	math.innerHTML = '+'
+            } else if (math.innerHTML == 'cos') {
+            	math.innerHTML = '-'
+            } else if (math.innerHTML == 'tan') {
+            	math.innerHTML = '*'
+            } else if (math.innerHTML == '√') {
+            	math.innerHTML = '/'
+            }
+        }
     })
 })
