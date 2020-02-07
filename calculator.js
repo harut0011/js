@@ -50,35 +50,34 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let b = 0; b < maths.length; b++) { //math buttons sorting out
         let math = maths[b];
 
+        let arithmatic = (theAct, arith) => {
+        	if (math.innerHTML == arith) {
+            	spanEff(theAct);
+            	numToMath = currentNum.innerHTML;
+
+            	currentNum.innerHTML = '0';
+            	act = theAct
+        }
+
         math.addEventListener('click', () => {
-            if (math.innerHTML == '+') {
-                spanEff('plus');
-                numToMath = currentNum.innerHTML;
-
-                currentNum.innerHTML = '0';
-                act = 'plus'
-
-            } else if (math.innerHTML == '-') {
-                spanEff('minus');
-                numToMath = currentNum.innerHTML;
-
-                currentNum.innerHTML = '0';
-                act = 'minus'
-
-            } else if (math.innerHTML == '*') {
-                spanEff('times');
-                numToMath = currentNum.innerHTML;
-
-                currentNum.innerHTML = '0';
-                act = 'times'
-            } else if (math.innerHTML == '/') {
-                spanEff('divide by');
-                numToMath = currentNum.innerHTML;
-
-                currentNum.innerHTML = '0';
-                act = 'divide by'
-            } else if (math.innerHTML == '.') {
+        	arithmatic('plus', '+')
+        	arithmatic('minus', '-')
+        	arithmatic('times', '*')
+        	arithmatic('divide by', '/')
+            if (math.innerHTML == '.') {
                 spanEff('.')
+            } else if (math.innerHTML == 'sin') {
+                currentNum.innerHTML = Math.sin(Number(currentNum.innerHTML)).toFixed(2);
+                spanEff(currentNum.innerHTML)
+            } else if (math.innerHTML == 'cos') {
+                currentNum.innerHTML = Math.cos(Number(currentNum.innerHTML)).toFixed(2);
+                spanEff(currentNum.innerHTML)
+            } else if (math.innerHTML == 'tan') {
+                currentNum.innerHTML = Math.tan(Number(currentNum.innerHTML)).toFixed(2);
+                spanEff(currentNum.innerHTML)
+            } else if (math.innerHTML == '√x') {
+                currentNum.innerHTML = Math.sqrt(Number(currentNum.innerHTML)).toFixed(2);
+                spanEff(currentNum.innerHTML)
             } else if (math.innerHTML == '=') {
                 if (act == 'plus') {
                     currentNum.innerHTML = Number(numToMath) + Number(currentNum.innerHTML);
@@ -103,29 +102,34 @@ document.addEventListener('DOMContentLoaded', () => {
         currentNum.innerHTML = '0'
     })
 
+
+
     replace.addEventListener('click', () => {
         replaceIc.classList.toggle('replace1');
 
         for (let c = 0; c < maths.length; c++) {
+            let trigonometry = (before, after) => {
+                let math = maths[c];
+                math.classList.toggle('mathColor')
+                if (math.innerHTML == before) {
+                    math.innerHTML = after;
+                }
+            }
             let math = maths[c];
             math.classList.toggle('mathColor')
-            if (math.innerHTML == '+') {
-            	math.innerHTML = 'sin';
-            } else if (math.innerHTML == '-') {
-            	math.innerHTML = 'cos'
-            } else if (math.innerHTML == '*') {
-            	math.innerHTML = 'tan'
-            } else if (math.innerHTML == '/') {
-            	math.innerHTML = '√' 
-            } else if (math.innerHTML == 'sin') {
-            	math.innerHTML = '+'
-            } else if (math.innerHTML == 'cos') {
-            	math.innerHTML = '-'
-            } else if (math.innerHTML == 'tan') {
-            	math.innerHTML = '*'
-            } else if (math.innerHTML == '√') {
-            	math.innerHTML = '/'
+            
+            if (math.innerHTML.length <= 1) {
+                trigonometry('+', 'sin')
+                trigonometry('-', 'cos')
+                trigonometry('*', 'tan')
+                trigonometry('/', '√x')
+            } else {
+                trigonometry('sin', '+')
+                trigonometry('cos', '-')
+                trigonometry('tan', '*')
+                trigonometry('√x', '/')
             }
         }
     })
+
 })
