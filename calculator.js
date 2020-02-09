@@ -43,60 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 spanEff(number.innerHTML);
             }
         });
-
-
     }
 
-    for (let b = 0; b < maths.length; b++) { //math buttons sorting out
-        let math = maths[b];
-
-        let arithmatic = (theAct, arith) => {
-        	if (math.innerHTML == arith) {
-            	spanEff(theAct);
-            	numToMath = currentNum.innerHTML;
-
-            	currentNum.innerHTML = '0';
-            	act = theAct
-        }
-
-        math.addEventListener('click', () => {
-        	arithmatic('plus', '+')
-        	arithmatic('minus', '-')
-        	arithmatic('times', '*')
-        	arithmatic('divide by', '/')
-            if (math.innerHTML == '.') {
-                spanEff('.')
-            } else if (math.innerHTML == 'sin') {
-                currentNum.innerHTML = Math.sin(Number(currentNum.innerHTML)).toFixed(2);
-                spanEff(currentNum.innerHTML)
-            } else if (math.innerHTML == 'cos') {
-                currentNum.innerHTML = Math.cos(Number(currentNum.innerHTML)).toFixed(2);
-                spanEff(currentNum.innerHTML)
-            } else if (math.innerHTML == 'tan') {
-                currentNum.innerHTML = Math.tan(Number(currentNum.innerHTML)).toFixed(2);
-                spanEff(currentNum.innerHTML)
-            } else if (math.innerHTML == '√x') {
-                currentNum.innerHTML = Math.sqrt(Number(currentNum.innerHTML)).toFixed(2);
-                spanEff(currentNum.innerHTML)
-            } else if (math.innerHTML == '=') {
-                if (act == 'plus') {
-                    currentNum.innerHTML = Number(numToMath) + Number(currentNum.innerHTML);
-                    spanEff(currentNum.innerHTML)
-                } else if (act == 'minus') {
-                    currentNum.innerHTML = Number(numToMath) - Number(currentNum.innerHTML);
-                    spanEff(currentNum.innerHTML)
-                } else if (act == 'times') {
-                    currentNum.innerHTML = Number(numToMath) * Number(currentNum.innerHTML);
-                    spanEff(currentNum.innerHTML)
-                } else if (act == 'divide by') {
-                    currentNum.innerHTML = Number(numToMath) / Number(currentNum.innerHTML);
-                    spanEff(currentNum.innerHTML)
-                }
-            }
-
-        })
-
-    }
+    
 
     refresh.addEventListener('click', () => {
         currentNum.innerHTML = '0'
